@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import DataContext from './DataContext';
-import {API_URL} from './config.js';
+import API_URL from './config.js';
 
 function CrawlImages() {
     const { data, setData } = useContext(DataContext);
