@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import DataContext from './DataContext';
+import {API_URL} from './config.js';
 
 function CrawlImages() {
     const { data, setData } = useContext(DataContext);
@@ -8,7 +9,7 @@ function CrawlImages() {
     const handleImageCrawl = async () => {
         setData(prevData => ({ ...prevData, loadingImages: true, errorImages: null }));
         try {
-            const response = await fetch('http://localhost:5000/img-crawl', {
+            const response = await fetch('${API_URL}/img-crawl', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -29,7 +30,7 @@ function CrawlImages() {
 
     const fetchImageData = async () => {
         try {
-            const response = await fetch("http://localhost:5000/img-members");
+            const response = await fetch("${API_URL}/img-members");
             if (!response.ok) {
                 throw new Error('Failed to fetch image data');
             }
@@ -42,7 +43,7 @@ function CrawlImages() {
     };
 
     const handleImageDownload = () => {
-        fetch('http://localhost:5000/img-download')
+        fetch('${API_URL}/img-download')
             .then(response => response.blob())
             .then(blob => {
                 const url = window.URL.createObjectURL(new Blob([blob]));
