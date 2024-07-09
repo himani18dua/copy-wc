@@ -1,3 +1,3 @@
 // src/config.js
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = web-production-4ae40.up.railway.app;
 export default API_URL;
