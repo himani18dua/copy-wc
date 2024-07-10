@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import DataContext from './DataContext';
-import API_URL from './config';
+// import API_URL from './config';
 
 function CrawlLinks() {
     const { data, setData } = useContext(DataContext);
@@ -9,7 +9,7 @@ function CrawlLinks() {
     const handleCrawl = async () => {
         setData(prevData => ({ ...prevData, loadingLinks: true, errorLinks: null }));
         try {
-            const response = await fetch('${API_URL}/crawl', {
+            const response = await fetch('https://localhost:5000/crawl', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
