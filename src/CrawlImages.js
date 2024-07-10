@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import DataContext from './DataContext';
-import API_URL from './config.js';
+// import API_URL from './config.js';
 
 function CrawlImages() {
     const { data, setData } = useContext(DataContext);
@@ -9,7 +9,7 @@ function CrawlImages() {
     const handleImageCrawl = async () => {
         setData(prevData => ({ ...prevData, loadingImages: true, errorImages: null }));
         try {
-            const response = await fetch('${API_URL}/img-crawl', {
+            const response = await fetch('https://localhost:5000/img-crawl', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
