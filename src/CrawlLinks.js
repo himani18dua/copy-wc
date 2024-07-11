@@ -30,7 +30,7 @@ function CrawlLinks() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch("${API_URL}/members");
+            const response = await fetch("https://localhost:5000/members");
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -43,7 +43,7 @@ function CrawlLinks() {
     };
 
     const handleDownload = () => {
-        fetch('${API_URL}/download')
+        fetch('https://localhost:5000/download')
             .then(response => response.blob())
             .then(blob => {
                 const url = window.URL.createObjectURL(new Blob([blob]));
