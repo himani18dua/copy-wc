@@ -14,7 +14,6 @@ function CrawlLinks() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                mode: 'no-cors' ,
                 body: JSON.stringify({ url }),
             });
 
@@ -31,7 +30,7 @@ function CrawlLinks() {
 
     const fetchData = async () => {
         try {
-            const response = await fetch("https://fin-back-odw1.onrender.com/members",{ mode: 'no-cors' });
+            const response = await fetch("https://fin-back-odw1.onrender.com/members");
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
@@ -44,7 +43,7 @@ function CrawlLinks() {
     };
 
     const handleDownload = () => {
-        fetch('https://fin-back-odw1.onrender.com/download',{ mode: 'no-cors' })
+        fetch('https://fin-back-odw1.onrender.com/download')
             .then(response => response.blob())
             .then(blob => {
                 const url = window.URL.createObjectURL(new Blob([blob]));
