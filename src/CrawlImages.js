@@ -43,7 +43,7 @@ function CrawlImages() {
     };
 
     const handleImageDownload = () => {
-        fetch('${API_URL}/img-download')
+        fetch('https://localhost:5000/img-download')
             .then(response => response.blob())
             .then(blob => {
                 const url = window.URL.createObjectURL(new Blob([blob]));
