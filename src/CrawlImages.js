@@ -30,7 +30,7 @@ function CrawlImages() {
 
     const fetchImageData = async () => {
         try {
-            const response = await fetch("http://localhost:5000/img-members");
+            const response = await fetch("https://localhost:5000/img-members");
             if (!response.ok) {
                 throw new Error('Failed to fetch image data');
             }
